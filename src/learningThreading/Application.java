@@ -6,14 +6,11 @@ public class Application {
 
 	public static void main(String[] args) {
 		System.out.println("Starting Thread 1");
-
-		Task taskRunner = new Task("Thread-A");
-		Thread thread1 = new Thread(taskRunner);
+		Thread thread1 = new Thread(new Task("Thread-A"));
 		thread1.start();
 		
 		System.out.println("Starting Thread 2");
-		Task taskRunner2 = new Task("Thread-B");
-		Thread thread2 = new Thread(taskRunner2);
+		Thread thread2 = new Thread(new Task("Thread-B"));
 		thread2.start();
 	}
 
