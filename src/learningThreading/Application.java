@@ -1,16 +1,20 @@
 package learningThreading;
 
 public class Application {
+	// Multithreading program
+	
 
 	public static void main(String[] args) {
 		System.out.println("Starting Thread 1");
+
 		Task taskRunner = new Task("Thread-A");
-		taskRunner.start();
+		Thread thread1 = new Thread(taskRunner);
+		thread1.start();
 		
 		System.out.println("Starting Thread 2");
 		Task taskRunner2 = new Task("Thread-B");
-		taskRunner2.setName("Thread B");
-		taskRunner2.start();
+		Thread thread2 = new Thread(taskRunner2);
+		thread2.start();
 	}
 
 }
@@ -19,8 +23,8 @@ public class Application {
 
 
 
-
-class Task extends Thread{
+//this is Runnable Task
+class Task implements Runnable{
 	
 	String name;
 	
